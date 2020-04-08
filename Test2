@@ -1,0 +1,35 @@
+public class MVCEggTimerTest2 {
+
+    public static void main(String[] args) {
+        EggTimerModel emodel = new EggTimerModel(60);
+        EggTimerCanvas view = new EggTimerCanvas(emodel);
+
+        Frame frame = new Frame("Kurzzeitwecker");
+        EggTimerController2 etController = new EggTimerController2(emodel, view);
+        frame.add(view);
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+
+        frame.pack();
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        /*for (int i = 0; i < 60; i++) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            }
+        
+            emodel.increaseElapsedTime(); hey, das macht der Controller schon.
+         */ 
+         // Anstossen eines Neuzeichnens des EggTimerCanvas.
+           // view.repaint(); macht der Controller auch.
+        }
+        
+    }
+
